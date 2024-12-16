@@ -7,6 +7,6 @@ Sklep internetowy oferujący produkty dla przenośnej konsoli do gier.
 Główne funkcjonalności
 
 - zarządzanie kontem użytkownika
-- dodawanie znajmych
+- dodawanie znajomych 
 - dokonywanie zakupu gier i innych dodatków
-- możliwość prezentowania gier innym użytkownikom możliwość prezentowania gier
+- możliwość prezentowania gier innym użytkownikom
