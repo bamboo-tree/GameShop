@@ -55,39 +55,43 @@ body {
   background-color: #171123;
   color: #e8f1f2;
 }
-.topnav a.active {
-  background-color: #cc2936;
+.topnav .active {
+  background: #33658a;
   color: #e8f1f2;
 }
 
 /* main page */
+#wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .main_page {
   box-sizing: border-box;
   border: solid 3px #171123;
   border-radius: 20px;
-  margin: 2% 5%;
-  width: 90%;
+  margin: 2% 0;
   padding: 2%;
-  float: left;
   background: #e8f1f2;
-}
-.main_page #about {
-  box-sizing: border-box;
-  float: left;
-  border-radius: 15px;
-  background: #171123;
-  padding: 3% 6%;
-}
-.main_page #about p {
-  box-sizing: border-box;
-  font-size: 18px;
-  padding: 4%;
-  text-align: justify;
   width: 90%;
-  border-radius: 10px;
+}
+
+/* feedback for user */
+.info {
+  box-sizing: border-box;
+  border: solid 3px #171123;
+  border-radius: 20px;
+  margin-bottom: 2%;
+  padding: 1%;
+  width: 70%;
+  background: #e94f37;
+  text-align: center;
+}
+
+.info p {
   color: #171123;
-  background: #e8f1f2;
-  float: left;
 }
 
 /* bottom bar */
