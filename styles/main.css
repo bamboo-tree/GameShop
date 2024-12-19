@@ -76,6 +76,10 @@ body {
   padding: 2%;
   background: #e8f1f2;
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* feedback for user */

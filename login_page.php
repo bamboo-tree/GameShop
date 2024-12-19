@@ -43,11 +43,11 @@ require './php/User.php';
 		<div class="main_page">
 			<form id="sign_up_form" action="" method="POST">
 				<div class="input_set">
-					<label for="first_textname">First Name</label>
+					<label for="first_name">First Name</label>
 					<input type="text" name="first_name" id="first_name" />
 				</div>
 				<div class="input_set">
-					<label for="first_textname">Last Name</label>
+					<label for="last_name">Last Name</label>
 					<input type="text" name="last_name" id="last_name" />
 				</div>
 				<div class="input_set">
@@ -65,6 +65,22 @@ require './php/User.php';
 				<div class="button_set">
 					<input type="submit" name="submit" value="Send" id="submit" />
 					<input type="reset" name="reset" value="Clear" id="clear" />
+					<input type="button" name="sign_in" value="Sign In" id="sign_in" />
+				</div>
+			</form>
+			<form id="log_in_form" action="" method="POST">
+				<div class="input_set">
+					<label for="user_name">User Name</label>
+					<input type="text" name="user_name" id="user_name" />
+				</div>
+				<div class="input_set">
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" />
+				</div>
+				<div class="button_set">
+					<input type="submit" name="submit" value="Send" id="submit" />
+					<input type="reset" name="reset" value="Clear" id="clear" />
+					<input type="button" name="sign_up" value="Sign Up" id="sign_up" />
 				</div>
 			</form>
 		</div>
