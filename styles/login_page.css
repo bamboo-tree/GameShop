@@ -3,23 +3,11 @@
   width: 70%;
 }
 
-#sign_up_form {
-  color: #e8f1f2;
+.my_form {
   border-radius: 15px;
   background: #171123;
   padding: 3% 6%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-}
-
-#log_in_form {
-  color: #e8f1f2;
-  border-radius: 15px;
-  background: #171123;
-  padding: 3% 6%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
