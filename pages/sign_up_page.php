@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
 require '../php/User.php';
+require '../php/Data_Base.php';
+$data_base = new Data_Base('localhost', 'root', '', 'game_shop');
 ?>
 <html lang="en">
 
@@ -100,10 +102,19 @@ require '../php/User.php';
 					if (empty($errors)) {
 						// create User object
 						$user = new User($first_name, $last_name, $user_name, $email, $password);
-
-						echo "<div class='info'>";
-						$user->show_user_info();
-						echo "</div>";
+						// $date = new DateTime();
+						try {
+							$data_base->my_query("INSERT INTO `users`(`user_name`, `password`, `first_name`, `second_name`, `email`) VALUES ('" . $user->get_user_name() . "','" . $user->get_password() . "','" . $user->get_first_name() . "','" . $user->get_last_name() . "','" . $user->get_email() . "')");
+							echo "<div class='info'>";
+							$user->show_user_info();
+							echo "</div>";
+							// add to logged in users
+							header('Location: ./home_page.php');
+						} catch (Exception $e) {
+							echo "<div class='info'>";
+							echo "Error: " . $e->getMessage();
+							echo "</div>";
+						}
 					} else {
 						// Display errors
 						echo "<div class='info'>";
