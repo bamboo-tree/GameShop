@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
 require '../php/User.php';
+require '../php/Data_Base.php';
+$data_base = new Data_Base('localhost', 'root', '', 'game_shop');
+session_start();
 ?>
 <html lang="en">
 
@@ -62,6 +65,23 @@ require '../php/User.php';
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($_POST['sign_up'] == "Sign Up") {
                 header('Location: ./sign_up_page.php');
+            } else {
+                $user_name = htmlspecialchars($_POST['user_name']);
+                $password = htmlspecialchars($_POST['password']);
+
+                $data = $data_base->my_query("SELECT `id`, `password` FROM `users` WHERE `user_name` LIKE '$user_name'");
+                $row = $data->fetch_assoc();
+                $hash = $row['password'];
+                $id = $row['id'];
+                $session_id = session_id();
+                echo "<div class='info'>";
+                if ($data->num_rows == 1 && password_verify($password, $hash)) {
+                    $data_base->my_query("INSERT INTO `logged_in_users`(`session_id`, `user_id`, `user_name`) VALUES ('$session_id','$id','$user_name')");
+                    echo "logged in!";
+                } else {
+                    echo "Username or Password is incorrect";
+                }
+                echo "</div>";
             }
         }
         ?>

@@ -108,13 +108,13 @@ $data_base = new Data_Base('localhost', 'root', '', 'game_shop');
 							echo "<div class='info'>";
 							$user->show_user_info();
 							echo "</div>";
+							// add to logged in users
+							header('Location: ./home_page.php');
 						} catch (Exception $e) {
 							echo "<div class='info'>";
 							echo "Error: " . $e->getMessage();
 							echo "</div>";
 						}
-
-						// header('Location: ./home_page.php');
 					} else {
 						// Display errors
 						echo "<div class='info'>";
