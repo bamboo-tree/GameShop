@@ -13,7 +13,8 @@ session_start();
   <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
   <!-- CSS -->
   <link rel="stylesheet" href="../styles/main.css" />
-  <link rel="stylesheet" href="../styles/profile.css" />
+  <link rel="stylesheet" href="../styles/products.css" />
+
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +37,7 @@ session_start();
   <div class="topnav">
     <!-- TODO: if user is logged in change 'login' to 'logout' -->
     <a href="./home_page.php">Home</a>
-    <a href="./products.php">Products</a>
+    <a class="active" href="./products.php">Products</a>
     <a href="">Shoping Cart</a>
     <?php
     $session_id = session_id();
@@ -45,62 +46,46 @@ session_start();
 
     if ($data->num_rows == 1) {
       $user_name = $row['user_name'];
-      echo "<a class='active' style='font-weight: 900' href='./profile.php'>Hello, $user_name!</a>";
+      echo "<a style='font-weight: 900' href='./profile.php'>Hello, $user_name!</a>";
     } else {
       echo "<a href='./log_in_page.php'>Login</a>";
     }
     ?>
   </div>
   <div id="wrap">
-
     <div class="main_page">
-      <form class="vertical_form" action="" method="POST">
-        <div class="button_set">
-          <input type="submit" name="account" value="Manage Account">
-          <input type="submit" name="shopping_cart" value="Shopping Cart">
-          <input type="submit" name="favourite" value="Favourite">
-          <input type="submit" name="logout" value="Log Out">
+      <div class="tile">
+        <img src="../images/games/tf2.jpg" alt="game">
+        <div class="column">
+          <div class="specification">
+            <h2 class="name">Team Fortress 2</h2>
+            <p class="price">Price: <b>Free</b></p>
+            <p class="studio">Studio: <b>Valve</b></p>
+            <p class="year">Year: <b>2007</b></p>
+          </div>
+          <form class="save" action="" method="POST">
+            <button name="favourite" value="id">Add to favourite</button>
+            <button name="shopping_cart" value="id">Add to shopping cart</button>
+          </form>
         </div>
-      </form>
-      <?php
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if ($_POST['logout'] == "Log Out") {
-          $session_id = session_id();
-          $data_base->my_query("DELETE FROM `logged_in_users` WHERE `session_id` LIKE '$session_id'");
-          header('Location: ./home_page.php');
-        }
-        echo "<div class='content'>";
-        if ($_POST['account'] == "Manage Account") {
-          echo "<h3>Manage Account</h3>";
-      ?>
-
-
-
-      <?php
-        }
-        if ($_POST['favourite'] == "Favourite") {
-          echo "<h3>Favourite Itmes</h3>";
-        }
-        if ($_POST['shopping_cart'] == "Shopping Cart") {
-          echo "<h3>Your Shopping Cart</h3>";
-        }
-
-
-
-
-        echo "</div>";
-      } else {
-        echo "<div class='content'>";
-        // same as in shopping_cart - i know it's bad but it i'm too lazy to change it, so let it be for now
-
-        echo "<h3>Your Shopping Cart</h3>";
-
-        echo "</div>";
-      }
-      ?>
-
-
+      </div>
+      <div class="tile">
+        <img src="../images/games/tf2.jpg" alt="game">
+        <div class="column">
+          <div class="specification">
+            <h2 class="name">Team Fortress 2</h2>
+            <p class="price">Price: <b>Free</b></p>
+            <p class="studio">Studio: <b>Valve</b></p>
+            <p class="year">Year: <b>2007</b></p>
+          </div>
+          <form class="save" action="" method="POST">
+            <button name="favourite" value="id">Add to favourite</button>
+            <button name="shopping_cart" value="id">Add to shopping cart</button>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
   </div>
   <div class="footer">
     <div class="bottom_bar">

@@ -37,7 +37,7 @@ session_start();
 	<div class="topnav">
 		<!-- TODO: if user is logged in change 'login' to 'logout' -->
 		<a href="./home_page.php">Home</a>
-		<a href="">Products</a>
+		<a href="./products.php">Products</a>
 		<a href="">Shoping Cart</a>
 		<?php
 		$session_id = session_id();
