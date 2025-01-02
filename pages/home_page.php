@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+require '../php/Data_Base.php';
+$data_base = new Data_Base('localhost', 'root', '', 'game_shop');
+session_start();
+?>
 
 <head>
   <meta charset="UTF-8" />
@@ -33,8 +38,18 @@
     <a class="active" href="./home_page.php">Home</a>
     <a href="">Products</a>
     <a href="">Shoping Cart</a>
-    <a href="">Profile</a>
-    <a href="./log_in_page.php">Login</a>
+    <?php
+    $session_id = session_id();
+    $data = $data_base->my_query("SELECT `session_id`, `user_name` FROM `logged_in_users` WHERE `session_id` LIKE '$session_id'");
+    $row = $data->fetch_assoc();
+
+    if ($data->num_rows == 1) {
+      $user_name = $row['user_name'];
+      echo "<a style='font-weight: 900' href='./profile.php'>Hello, $user_name!</a>";
+    } else {
+      echo "<a href='./log_in_page.php'>Login</a>";
+    }
+    ?>
   </div>
   <div id="wrap">
     <div class="main_page">
