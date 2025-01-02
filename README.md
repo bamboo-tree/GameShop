@@ -5,13 +5,11 @@
 **Główne funkcjonalności:**
 
 - zarządzanie profilem użytkownika
-
   - dodawanie produktów do ulubionych
   - edytowanie zawartości koszyka
   - "składanie zamówienia"
 
 - zapisywanie gier w koszyku
-
   - możliwość tworzenia koszyka przed założeniem konta, zapisywanie danych w sesji
 
 - panel administratora
