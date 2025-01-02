@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-require '../php/User.php';
 require '../php/Data_Base.php';
 $data_base = new Data_Base('localhost', 'root', '', 'game_shop');
 session_start();
@@ -39,8 +38,18 @@ session_start();
         <a href="./home_page.php">Home</a>
         <a href="">Products</a>
         <a href="">Shoping Cart</a>
-        <a href="">Profile</a>
-        <a class="active" href="">Login</a>
+        <?php
+        $session_id = session_id();
+        $data = $data_base->my_query("SELECT `session_id`, `user_name` FROM `logged_in_users` WHERE `session_id` LIKE '$session_id'");
+        $row = $data->fetch_assoc();
+
+        if ($data->num_rows == 1) {
+            $user_name = $row['user_name'];
+            echo "<a style='font-weight: 900' href='./profile.php'>Hello, $user_name!</a>";
+        } else {
+            echo "<a class='active' href='./log_in_page.php'>Login</a>";
+        }
+        ?>
     </div>
     <div id="wrap">
         <div class="main_page">
@@ -68,7 +77,7 @@ session_start();
             } else {
                 $user_name = htmlspecialchars($_POST['user_name']);
                 $password = htmlspecialchars($_POST['password']);
-
+                // add to logged in users
                 $data = $data_base->my_query("SELECT `id`, `password` FROM `users` WHERE `user_name` LIKE '$user_name'");
                 $row = $data->fetch_assoc();
                 $hash = $row['password'];
@@ -78,6 +87,7 @@ session_start();
                 if ($data->num_rows == 1 && password_verify($password, $hash)) {
                     $data_base->my_query("INSERT INTO `logged_in_users`(`session_id`, `user_id`, `user_name`) VALUES ('$session_id','$id','$user_name')");
                     echo "logged in!";
+                    header('Location: ./home_page.php');
                 } else {
                     echo "Username or Password is incorrect";
                 }
