@@ -116,9 +116,6 @@ session_start();
         </p>
       </div>
     </div>
-    <div class="info">
-      <p>skibidi</p>
-    </div>
   </div>
   <div class="footer">
     <div class="bottom_bar">

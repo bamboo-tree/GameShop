@@ -126,6 +126,8 @@ session_start();
 							$id = $row['id'];
 							$session_id = session_id();
 							if ($data->num_rows == 1 && password_verify($password, $hash)) {
+								// remove user in case they didn't log out previously
+								$data_base->my_query("DELETE FROM `logged_in_users` WHERE `user_id` LIKE '$id'");
 								$data_base->my_query("INSERT INTO `logged_in_users`(`session_id`, `user_id`, `user_name`) VALUES ('$session_id','$id','$user_name')");
 								header('Location: ./home_page.php');
 							}

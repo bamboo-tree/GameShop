@@ -1,0 +1,37 @@
+.main_page {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.vertical_form {
+  display: block;
+  box-sizing: border-box;
+  padding: 5% 2%;
+  width: 25%;
+  border: solid 3px #171123;
+  border-radius: 20px;
+  background-color: #171123;
+}
+
+.button_set {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button_set input {
+  width: 100%;
+  padding: 5%;
+  margin: 5% 0 5% 0;
+  font-size: 16px;
+}
+
+.content {
+  display: block;
+  box-sizing: border-box;
+  padding: 5%;
+  width: 70%;
+  border: solid 3px #171123;
+  border-radius: 20px;
+  background-color: red;
+}
