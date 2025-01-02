@@ -69,11 +69,36 @@ session_start();
           $data_base->my_query("DELETE FROM `logged_in_users` WHERE `session_id` LIKE '$session_id'");
           header('Location: ./home_page.php');
         }
+        echo "<div class='content'>";
+        if ($_POST['account'] == "Manage Account") {
+          echo "<h3>Manage Account</h3>";
+      ?>
+
+
+
+      <?php
+        }
+        if ($_POST['favourite'] == "Favourite") {
+          echo "<h3>Favourite Itmes</h3>";
+        }
+        if ($_POST['shopping_cart'] == "Shopping Cart") {
+          echo "<h3>Your Shopping Cart</h3>";
+        }
+
+
+
+
+        echo "</div>";
+      } else {
+        echo "<div class='content'>";
+        // same as in shopping_cart - i know it's bad but it i'm too lazy to change it, so let it be for now
+
+        echo "<h3>Your Shopping Cart</h3>";
+
+        echo "</div>";
       }
       ?>
-      <div class="content">
 
-      </div>
 
     </div>
   </div>

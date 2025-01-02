@@ -1,14 +1,14 @@
 .main_page {
   flex-direction: row;
   justify-content: space-between;
+  align-items: start;
 }
 
 .vertical_form {
   display: block;
   box-sizing: border-box;
-  padding: 5% 2%;
+  padding: 3% 2%;
   width: 25%;
-  border: solid 3px #171123;
   border-radius: 20px;
   background-color: #171123;
 }
@@ -29,9 +29,16 @@
 .content {
   display: block;
   box-sizing: border-box;
-  padding: 5%;
+  padding: 3% 2%;
   width: 70%;
-  border: solid 3px #171123;
+  min-height: 70vh;
+  border: solid 3px #e8f1f2;
   border-radius: 20px;
-  background-color: red;
+  background-color: #171123;
+}
+
+.content h3 {
+  background-color: #e8f1f2;
+  border-radius: 10px;
+  padding: 3% 2%;
 }
