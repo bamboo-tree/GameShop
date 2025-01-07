@@ -78,17 +78,17 @@ session_start();
         $user_name = htmlspecialchars($_POST['user_name']);
         $password = htmlspecialchars($_POST['password']);
         // add to logged in users
-        $data = $data_base->my_query("SELECT `id`, `password` FROM `users` WHERE `user_name` LIKE '$user_name'");
+        $data = $data_base->my_query("SELECT `id`, `password`, `status` FROM `users` WHERE `user_name` LIKE '$user_name'");
         $row = $data->fetch_assoc();
         $hash = $row['password'];
         $id = $row['id'];
+        $status = $row['status'];
         $session_id = session_id();
         echo "<div class='info'>";
         if ($data->num_rows == 1 && password_verify($password, $hash)) {
           // remove user in case they didn't log out previously
           $data_base->my_query("DELETE FROM `logged_in_users` WHERE `user_id` LIKE '$id'");
-          $data_base->my_query("INSERT INTO `logged_in_users`(`session_id`, `user_id`, `user_name`) VALUES ('$session_id','$id','$user_name')");
-          echo "logged in!";
+          $data_base->my_query("INSERT INTO `logged_in_users`(`session_id`, `user_id`, `user_name`, `status`) VALUES ('$session_id','$id','$user_name','$status')");
           header('Location: ./home_page.php');
         } else {
           echo "Username or Password is incorrect";
