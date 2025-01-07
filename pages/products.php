@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 require '../php/Data_Base.php';
+// require '../php/get_image.php';
 $data_base = new Data_Base('localhost', 'root', '', 'game_shop');
 session_start();
 ?>
@@ -54,6 +55,11 @@ session_start();
   </div>
   <div id="wrap">
     <div class="main_page">
+      <!-- TODO: fetch data from database -->
+      <img src="../php/get_image.php?id=2" alt="Image from database">
+
+
+
       <div class="tile">
         <img src="../images/games/tf2.jpg" alt="game">
         <div class="column">
