@@ -61,7 +61,6 @@ session_start();
       ?>
         <form class="vertical_form" action="" method="POST">
           <div class="button_set">
-            <input type="submit" name="account" value="Manage Account">
             <input type="submit" name="shopping_cart" value="Shopping Cart">
             <input type="submit" name="favourite" value="Favourite">
             <input type="submit" name="logout" value="Log Out">
@@ -77,17 +76,21 @@ session_start();
             <input type="submit" name="logout" value="Log Out">
           </div>
         </form>
-      <?php
+        <?php
       }
+      echo "<div class='content'>";
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_POST['logout'] == "Log Out") {
           $session_id = session_id();
           $data_base->my_query("DELETE FROM `logged_in_users` WHERE `session_id` LIKE '$session_id'");
           header('Location: ./home_page.php');
         }
-        echo "<div class='content'>";
         if ($_POST['account'] == "Manage Account") {
-          echo "<h3>Manage Account</h3>";
+        ?>
+          <h3>Manage Account</h3>";
+
+
+        <?php
         }
         if ($_POST['favourite'] == "Favourite") {
           echo "<h3>Favourite Itmes</h3>";
@@ -95,8 +98,42 @@ session_start();
         if ($_POST['shopping_cart'] == "Shopping Cart") {
           echo "<h3>Your Shopping Cart</h3>";
         }
-        echo "</div>";
+        if ($_POST['add_game'] == "Add Game") {
+        ?>
+          <h3>Add Game</h3>
+          <div class="my_form">
+            <form action="" method="POST">
+              <div class="input_set">
+                <label for="title">Game Title</label>
+                <input type="text" name="title" id="title" />
+              </div>
+              <div class="input_set">
+                <label for="studio">Studio</label>
+                <input type="text" name="studio" id="studio" />
+              </div>
+              <div class="input_set">
+                <label for="year">Year of Release</label>
+                <input type="number" id="year" name="year" min="1984" max="2025">
+              </div>
+              <div class="input_set">
+                <label for="price">Price</label>
+                <input type="text" name="price" id="price" />
+              </div>
+              <div class="input_set">
+                <label for="image">Image</label>
+                <input type="file" id="image" name="image" accept="image/jpg, image/jpeg, image/png" />
+              </div>
+            </form>
+          </div>
+      <?php
+        }
+        if ($_POST['edit_library'] == "Edit Library") {
+          echo "<h3>Edit Library</h3>";
+        }
+      } else {
+        echo "<div></div>";
       }
+      echo "</div>";
       ?>
 
 

@@ -27,7 +27,10 @@
 }
 
 .content {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
   box-sizing: border-box;
   padding: 3% 2%;
   width: 70%;
@@ -39,6 +42,50 @@
 
 .content h3 {
   background-color: #e8f1f2;
+  width: 80%;
   border-radius: 10px;
   padding: 3% 2%;
+}
+
+.content p {
+  background-color: #e8f1f2;
+  color: #171123;
+  border-radius: 5px;
+  padding: 2% 1%;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.my_form {
+  width: 100%;
+}
+
+.my_form .input_set {
+  box-sizing: border-box;
+  width: 50%;
+  background: #e8f1f2;
+  color: #171123;
+  padding: 1% 6% 2% 6%;
+  margin: 8px 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my_form .input_set input {
+  width: 100%;
+  padding: 2%;
+}
+
+.my_form .input_set label {
+  display: block;
 }
