@@ -72,7 +72,7 @@ form {
   width: 50%;
   background: #e8f1f2;
   color: #171123;
-  padding: 1% 6% 2% 6%;
+  padding: 1% 4% 2% 4%;
   margin: 8px 0;
   border-radius: 10px;
   display: flex;
@@ -88,4 +88,19 @@ form {
 
 .my_form .input_set label {
   display: block;
+}
+
+.my_form .button_set {
+  display: block;
+  margin: 8px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.my_form .button_set input {
+  font-size: 16px;
+  padding: 5% 30%;
+  margin: 0 5px;
 }
