@@ -117,10 +117,6 @@ session_start();
                 <label for="price">Price</label>
                 <input type="number" name="price" id="price" step="0.01" value="0.00" min="0.00" />
               </div>
-              <div class="input_set">
-                <label for="image">Image</label>
-                <input class="my_file" type="file" id="image" name="image" accept="image/jpg, image/jpeg, image/png" />
-              </div>
               <div class="button_set">
                 <input type="submit" name="submit" value="Add" id="submit" />
                 <input type="reset" name="reset" value="Clear" id="clear" />
@@ -128,70 +124,50 @@ session_start();
             </form>
           </div>
       <?php
-          if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if ($_POST['submit'] == "Add") {
-              // get form data
-              $title = htmlspecialchars($_POST['title']);
-              $studio = htmlspecialchars($_POST['studio']);
-              $year = htmlspecialchars($_POST['year']);
-              $price = htmlspecialchars($_POST['price']);
-              // $file = $_FILES['image'];
+          if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST['submit'] == "Add") {
 
-              // validation
-              if (empty($title)) {
-                $errors[] = "Title is required.";
-              } else {
-                $title = trim($title);
-              }
-              if (empty($studio)) {
-                $errors[] = "Studio is required.";
-              } else {
-                $studio = trim($studio);
-              }
-              if (empty($year)) {
-                $errors[] = "Year is required.";
-              }
-              if (empty($price)) {
-                $errors[] = "Price is required.";
-              }
+            // get form data
+            $title = htmlspecialchars($_POST['title']);
+            $studio = htmlspecialchars($_POST['studio']);
+            $year = htmlspecialchars($_POST['year']);
+            $price = htmlspecialchars($_POST['price']);
 
-              // if ($file['error'] === UPLOAD_ERR_OK) {
-              //   $fileName = basename($file['name']);
-              //   $fileTmpPath = $file['tmp_name'];
-              //   $fileType = mime_content_type($fileTmpPath);
-              //   $allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-              //   $uploadDir = '../images/games/';
-              //   // Validate file type
-              //   if (in_array($fileType, $allowedTypes)) {
-              //     $destination = $uploadDir . $fileName;
-              //     if (move_uploaded_file($fileTmpPath, $destination)) {
-              //       $uploadedImage = $fileName;
-              //     } else {
-              //       $error = "Failed to move the uploaded file.";
-              //     }
-              //   } else {
-              //     $error = "Only JPG and PNG files are allowed.";
-              //   }
-              // } else {
-              //   $error = "No file was uploaded or an error occurred.";
-              // }
-              // Check if there are any errors
-              if (empty($errors)) {
-                try {
-                  echo "TEST";
-                } catch (Exception $e) {
-                  echo "<div class='info'>";
-                  echo "Error: " . $e->getMessage();
-                  echo "</div>";
-                }
-              } else {
-                // Display errors
+
+            // validation
+            if (empty($title)) {
+              $errors[] = "Title is required.";
+            } else {
+              $title = trim($title);
+            }
+            if (empty($studio)) {
+              $errors[] = "Studio is required.";
+            } else {
+              $studio = trim($studio);
+            }
+            if (empty($year)) {
+              $errors[] = "Year is required.";
+            }
+            if (empty($price)) {
+              $errors[] = "Price is required.";
+            }
+
+
+            // Check if there are any errors
+            if (empty($errors)) {
+              try {
+                echo "TEST";
+              } catch (Exception $e) {
                 echo "<div class='info'>";
-                foreach ($errors as $error) {
-                  echo "<b>$error</b></br>";
-                }
+                echo "Error: " . $e->getMessage();
                 echo "</div>";
               }
+            } else {
+              // Display errors
+              echo "<div class='info'>";
+              foreach ($errors as $error) {
+                echo "<b>$error</b></br>";
+              }
+              echo "</div>";
             }
           }
         }
