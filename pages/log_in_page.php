@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require '../php/Data_Base.php';
+require '../class/Data_Base.php';
 $data_base = new Data_Base('localhost', 'root', '', 'game_shop');
 session_start();
 ?>

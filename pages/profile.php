@@ -79,7 +79,7 @@ session_start();
         <?php
       }
       echo "<div class='content'>";
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST['submit'] != "Add") {
         if ($_POST['logout'] == "Log Out") {
           $session_id = session_id();
           $data_base->my_query("DELETE FROM `logged_in_users` WHERE `session_id` LIKE '$session_id'");
