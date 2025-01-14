@@ -24,7 +24,9 @@
         <div class="dropdown-content">
           <a href="#">Add Game</a>
           <a href="#">Delete Game</a>
-          <a href="#">Log Out</a>
+          <form action="../script/log_out.php" method="POST">
+            <button type="submit" name="logout">Log Out</button>
+          </form>
         </div>
       </div>
     <?php
@@ -35,7 +37,9 @@
         <div class="dropdown-content">
           <a href="#">Shopping cart</a>
           <a href="#">Favourite</a>
-          <a href="#">Log Out</a>
+          <form action="../script/log_out.php" method="POST">
+            <button type="submit" name="logout">Log Out</button>
+          </form>
         </div>
       </div>
     <?php
