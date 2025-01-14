@@ -23,22 +23,12 @@ session_start();
 
 <body>
   <?php
-  // leave if user is not admin
-  include '../script/safe_page.php';
-
   include '../page_element/title.php';
   include '../page_element/nav_bar.php';
   ?>
 
-  <div class="content">
-    <?php
-    include '../page_element/game_form.php';
-    ?>
-  </div>
+  <img src="../images/hahaha.jpg" alt="hahaha" width="100%" height="100%">
 
-  <?php
-  include '../page_element/footer.php';
-  ?>
 </body>
 
 </html>
