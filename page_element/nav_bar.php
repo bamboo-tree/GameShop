@@ -23,7 +23,7 @@
         <button class="dropbtn">Hello, <?php echo "$user_name" ?></button>
         <div class="dropdown-content">
           <a href="../page/add_game.php">Add Game</a>
-          <a href="../page/delete_game.php">Delete Game</a>
+          <a href="../page/edit_game.php">Edit Game Info</a>
           <form action="../script/log_out.php" method="POST">
             <button type="submit" name="logout">Log Out</button>
           </form>
