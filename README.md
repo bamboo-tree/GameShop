@@ -4,12 +4,14 @@
 
 **Główne funkcjonalności:**
 
+
 - ZARZĄDZANIE PROFILEM UŻYTKOWNIKA
 
   - dodawanie gier do ulubionych
   - dodawanie gier do koszyka
   - "składanie zamówienia"
   - edytowanie zawartości koszyka oraz gier polubionych
+
 
 - PANEL ADMINISTRATORA
 
@@ -20,3 +22,4 @@
 
 - zabezpieczenie przed nieatoryzowanym dostępem (nie każdy może wejść na niektóre strony, nawet jeśli wpisze odpowiedni URL)
 - statystyki sklepu takie jak ilość kont, osób zalogowanych, dostępnych gier w sklepie
+
