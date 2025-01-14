@@ -40,3 +40,36 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+/* title for each page */
+.header_frame {
+  box-sizing: border-box;
+  border: solid 3px #171123;
+  border-radius: 20px;
+  margin: 2% 5% 1% 5%;
+  background: #e8f1f2;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 1%;
+  font-size: 32px;
+  font-weight: 800;
+  color: #171123;
+}
+
+/* light text */
+.light,
+.light a {
+  text-align: center;
+  width: 100%;
+  text-decoration: none;
+  color: #676767;
+}

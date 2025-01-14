@@ -29,30 +29,53 @@ session_start();
   ?>
 
   <div class="header_frame">
-    <h1 class="header">PRODUCTS</h1>
+    <h1 class="header">SHOPPING CART</h1>
   </div>
-
 
   <div class="content">
     <?php
-    $data = $data_base->my_query("SELECT `id`, `image_id`, `title`, `studio`, `price`, `year` FROM `products` WHERE 1");
-    // $rows = [];
+    $data = $data_base->my_query("SELECT `user_id` FROM `logged_in_users` WHERE `session_id` LIKE '$session_id'");
+    $row = $data->fetch_assoc();
+
+    if ($data->num_rows == 1) {
+      $user_id = $row['user_id'];
+    }
+
+    // save all favourite games in array
+    $data = $data_base->my_query("SELECT `product_id` FROM `shopping_cart` WHERE `user_id` LIKE '$user_id'");
+    $games = [];
     if ($data->num_rows > 0) {
       while ($row = $data->fetch_assoc()) {
-        //   // $data[] = $row;
+        $games[] = $row['product_id'];
+      }
+    }
+    if (empty($games)) {
+      echo "<p class='light'><a href='../page/products.php'>Your shopping cart is empty</a></p>";
+    } else {
+      $sum = 0.0;
+      // display all games
+      foreach ($games as $game_id) {
+        $data = $data_base->my_query("SELECT `id`, `image_id`, `title`, `studio`, `price`, `year` FROM `products` WHERE `id` LIKE '$game_id'");
+        $row = $data->fetch_assoc();
+
         $id = $row['id'];
         $image_id = $row['image_id'];
         $title = $row['title'];
         $studio = $row['studio'];
         $price = $row['price'];
         $year = $row['year'];
-        include "../page_element/product_tile.php";
+
+        $sum += $price;
+
+        include "../page_element/shopping_cart_tile.php";
       }
-    } else {
-      echo "<div class='info'>";
-      echo "<p>No games found</p>";
-      echo "</div>";
     }
+    ?>
+  </div>
+
+  <div class="content">
+    <?php
+    include "../page_element/summary.php";
     ?>
   </div>
 

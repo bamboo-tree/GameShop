@@ -30,6 +30,10 @@ session_start();
   include '../page_element/nav_bar.php';
   ?>
 
+  <div class="header_frame">
+    <h1 class="header">ADMIN PANEL - ADD NEW GAME</h1>
+  </div>
+
   <div class="content">
     <?php
     include '../page_element/game_form.php';
