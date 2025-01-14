@@ -1,5 +1,8 @@
-.main-page {
-  align-items: start;
+.content {
+  flex-wrap: wrap;
+  flex-direction: unset;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .tile {
@@ -8,7 +11,7 @@
   margin: 1% 0;
   background-color: #171123;
   color: #e8f1f2;
-  width: 50%;
+  width: 45%;
   height: 100%;
   display: flex;
   align-items: start;
