@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="../style/login_form.css" />
+  <link rel="stylesheet" href="../style/form.css" />
 </head>
 
 <?php
