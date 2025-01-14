@@ -1,0 +1,42 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  max-width: 100%;
+  font-family: "Red Hat Text", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  background: #33658a;
+}
+
+/* feedback for user */
+.info {
+  box-sizing: border-box;
+  border: solid 3px #171123;
+  border-radius: 20px;
+  margin: 2% 15%;
+  padding: 1%;
+  width: 70%;
+  background: #e94f37;
+  text-align: center;
+}
+
+.info p {
+  color: #171123;
+}
+
+/* content layout */
+.content {
+  box-sizing: border-box;
+  border: solid 3px #171123;
+  border-radius: 20px;
+  margin: 2% 5%;
+  padding: 2%;
+  background: #e8f1f2;
+  width: 90%;
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

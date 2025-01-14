@@ -37,7 +37,7 @@ session_start();
 	<div class="topnav">
 		<!-- TODO: if user is logged in change 'login' to 'logout' -->
 		<a href="./home_page.php">Home</a>
-		<a href="">Products</a>
+		<a href="./products.php">Products</a>
 		<a href="">Shoping Cart</a>
 		<?php
 		$session_id = session_id();
@@ -112,21 +112,24 @@ session_start();
 					// Check if there are any errors
 					if (empty($errors)) {
 						// create User object
-						$user = new User($first_name, $last_name, $user_name, $email, $password);
+						$user = new User($first_name, $last_name, $user_name, $email, $password, 'USER');
 						// $date = new DateTime();
 						try {
-							$data_base->my_query("INSERT INTO `users`(`user_name`, `password`, `first_name`, `second_name`, `email`) VALUES ('" . $user->get_user_name() . "','" . $user->get_password() . "','" . $user->get_first_name() . "','" . $user->get_last_name() . "','" . $user->get_email() . "')");
+							$data_base->my_query("INSERT INTO `users`(`user_name`, `password`, `first_name`, `second_name`, `email`, `status`) VALUES ('" . $user->get_user_name() . "','" . $user->get_password() . "','" . $user->get_first_name() . "','" . $user->get_last_name() . "','" . $user->get_email() . "','USER')");
 							echo "<div class='info'>";
 							$user->show_user_info();
 							echo "</div>";
 							// add to logged in users
-							$data = $data_base->my_query("SELECT `id`, `password` FROM `users` WHERE `user_name` LIKE '$user_name'");
+							$data = $data_base->my_query("SELECT `id`, `password`, `status` FROM `users` WHERE `user_name` LIKE '$user_name'");
 							$row = $data->fetch_assoc();
 							$hash = $row['password'];
 							$id = $row['id'];
+							$status = $row['status'];
 							$session_id = session_id();
 							if ($data->num_rows == 1 && password_verify($password, $hash)) {
-								$data_base->my_query("INSERT INTO `logged_in_users`(`session_id`, `user_id`, `user_name`) VALUES ('$session_id','$id','$user_name')");
+								// remove user in case they didn't log out previously
+								$data_base->my_query("DELETE FROM `logged_in_users` WHERE `user_id` LIKE '$id'");
+								$data_base->my_query("INSERT INTO `logged_in_users`(`session_id`, `user_id`, `user_name`, `status`) VALUES ('$session_id','$id','$user_name','$status')");
 								header('Location: ./home_page.php');
 							}
 						} catch (Exception $e) {

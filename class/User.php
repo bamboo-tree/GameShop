@@ -5,13 +5,15 @@ class User {
     private $user_name;
     private $email;
     private $hashed_password;
+    private $status;
 
-    public function __construct($first_name, $last_name, $user_name, $email, $text_password) {
+    public function __construct($first_name, $last_name, $user_name, $email, $text_password, $status) {
         $this->first_name = $first_name;
         $this->last_name = $last_name;
         $this->user_name = $user_name;
         $this->email = $email;
         $this->hashed_password = password_hash($text_password, PASSWORD_DEFAULT);
+        $this->status = $status;
     }
 
     public function show_user_info() {
@@ -20,6 +22,7 @@ class User {
         echo "USER NAME : " . $this->user_name . "<br>";
         echo "EMAIL : " . $this->email . "<br>";
         echo "PASSWORD : " . $this->hashed_password . "<br>";
+        echo "STATUS : " . $this->status . "<br>";
     }
 
     public function set_first_name($first_name) {
@@ -37,6 +40,9 @@ class User {
     public function set_password($text_password) {
         $this->hashed_password = password_hash($text_password, PASSWORD_DEFAULT);
     }
+    public function set_status($status) {
+        $this->status = $status;
+    }
 
     public function get_first_name() {
         return $this->first_name;
@@ -52,5 +58,8 @@ class User {
     }
     public function get_password() {
         return $this->hashed_password;
+    }
+    public function get_status() {
+        return $this->status;
     }
 }
