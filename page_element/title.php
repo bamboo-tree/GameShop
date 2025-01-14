@@ -1,32 +1,5 @@
 <head>
-  <style>
-    /* top title */
-    .title {
-      margin: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      background-color: #171123;
-      padding: 0 0;
-    }
-
-    .title .letter1,
-    .title .letter2 {
-      color: #e8f1f2;
-      font-size: 24px;
-      font-weight: 700;
-      padding: 0px 4px;
-    }
-
-    .title .letter1:hover {
-      color: red;
-    }
-
-    .title .letter2:hover {
-      color: skyblue;
-    }
-  </style>
+  <link rel="stylesheet" href="../style/title.css" />
 </head>
 
 
