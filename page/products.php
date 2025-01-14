@@ -35,6 +35,7 @@ session_start();
     if ($data->num_rows > 0) {
       while ($row = $data->fetch_assoc()) {
         //   // $data[] = $row;
+        $id = $row['id'];
         $image_id = $row['image_id'];
         $title = $row['title'];
         $studio = $row['studio'];

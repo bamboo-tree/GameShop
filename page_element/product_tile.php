@@ -27,9 +27,11 @@
       <p class="studio">Studio: <b><?php echo "$studio"; ?></b></p>
       <p class="year">Year: <b><?php echo "$year"; ?></b></p>
     </div>
-    <form class="save" action="" method="POST">
-      <button name="favourite" value="id">Add to favourite</button>
-      <button name="shopping_cart" value="id">Add to shopping cart</button>
+    <form class="save" action="../script/save_game.php" method="POST">
+      <?php
+      echo "<button name='favourite' value='$id'>Add to favourite</button>";
+      echo "<button name='shopping_cart' value='$id'>Add to shopping cart</button>";
+      ?>
     </form>
   </div>
 </div>
