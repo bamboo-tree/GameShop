@@ -27,6 +27,23 @@ session_start();
   include '../page_element/nav_bar.php';
   ?>
 
+  <?php
+  $data = $data_base->my_query("SELECT `id`, `image_id`, `title`, `studio`, `price`, `year` FROM `products` WHERE 1");
+  // $rows = [];
+  while ($row = $result->fetch_assoc()) {
+    // $data[] = $row;
+    $image_id = $row['image_id'];
+    $title = $row['title'];
+    $studio = $row['studio'];
+    $price = $row['price'];
+    $year = $row['year'];
+    include "../page_element/product_tile.php";
+  }
+
+
+
+  ?>
+
 
   <?php
   include '../page_element/footer.php';

@@ -23,9 +23,6 @@ session_start();
 
 <body>
   <?php
-  // leave if user is logged in
-  include '../script/is_logged_in.php';
-
   include '../page_element/title.php';
   include '../page_element/nav_bar.php';
   ?>
@@ -37,6 +34,9 @@ session_start();
 
   <?php
   include '../page_element/footer.php';
+  // leave if user is logged in
+  include '../script/is_logged_in.php';
+
   ?>
 </body>
 
