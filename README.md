@@ -4,15 +4,22 @@
 
 **Główne funkcjonalności:**
 
-- zarządzanie profilem użytkownika
-  - dodawanie produktów do ulubionych
-  - edytowanie zawartości koszyka
+
+- ZARZĄDZANIE PROFILEM UŻYTKOWNIKA
+
+  - dodawanie gier do ulubionych
+  - dodawanie gier do koszyka
   - "składanie zamówienia"
+  - edytowanie zawartości koszyka oraz gier polubionych
 
-- zapisywanie gier w koszyku
-  - możliwość tworzenia koszyka przed założeniem konta, zapisywanie danych w sesji
 
-- panel administratora
-  - tworzenie aktualnej oferty
-  - tworzenie nowych produktów
-  - edytowanie oferty (cena, nazwa itp.)
+- PANEL ADMINISTRATORA
+
+  - dodawanie gier
+  - edytowanie własności gier (zmiana ceny lub innych informacji)
+
+**Doatkowe funckcje**
+
+- zabezpieczenie przed nieatoryzowanym dostępem (nie każdy może wejść na niektóre strony, nawet jeśli wpisze odpowiedni URL)
+- statystyki sklepu takie jak ilość kont, osób zalogowanych, dostępnych gier w sklepie
+

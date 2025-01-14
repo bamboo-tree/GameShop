@@ -26,18 +26,9 @@ session_start();
   include '../page_element/title.php';
   include '../page_element/nav_bar.php';
   ?>
-  <div class="content">
-    <?php
-    include '../page_element/sign_up_form.php';
-    ?>
-  </div>
 
-  <?php
-  include '../page_element/footer.php';
-  // leave if user is logged in
-  include '../script/is_logged_in.php';
+  <img src="../images/hahaha.jpg" alt="hahaha" width="100%" height="100%">
 
-  ?>
 </body>
 
 </html>

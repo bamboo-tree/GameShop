@@ -23,20 +23,21 @@ session_start();
 
 <body>
   <?php
+  // leave if user is not admin
+  include '../script/safe_page.php';
+
   include '../page_element/title.php';
   include '../page_element/nav_bar.php';
   ?>
+
   <div class="content">
     <?php
-    include '../page_element/sign_up_form.php';
+    include '../page_element/game_form.php';
     ?>
   </div>
 
   <?php
   include '../page_element/footer.php';
-  // leave if user is logged in
-  include '../script/is_logged_in.php';
-
   ?>
 </body>
 

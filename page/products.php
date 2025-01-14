@@ -13,6 +13,7 @@ session_start();
   <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
   <!-- CSS -->
   <link rel="stylesheet" href="../style/base.css" />
+  <link rel="stylesheet" href="../style/product.css" />
   <!-- Google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,17 +27,32 @@ session_start();
   include '../page_element/title.php';
   include '../page_element/nav_bar.php';
   ?>
+
   <div class="content">
     <?php
-    include '../page_element/sign_up_form.php';
+    $data = $data_base->my_query("SELECT `id`, `image_id`, `title`, `studio`, `price`, `year` FROM `products` WHERE 1");
+    // $rows = [];
+    if ($data->num_rows > 0) {
+      while ($row = $data->fetch_assoc()) {
+        //   // $data[] = $row;
+        $id = $row['id'];
+        $image_id = $row['image_id'];
+        $title = $row['title'];
+        $studio = $row['studio'];
+        $price = $row['price'];
+        $year = $row['year'];
+        include "../page_element/product_tile.php";
+      }
+    } else {
+      echo "<div class='info'>";
+      echo "<p>No games found</p>";
+      echo "</div>";
+    }
     ?>
   </div>
 
   <?php
   include '../page_element/footer.php';
-  // leave if user is logged in
-  include '../script/is_logged_in.php';
-
   ?>
 </body>
 
