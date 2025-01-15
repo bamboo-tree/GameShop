@@ -73,6 +73,8 @@ session_start();
 
   <?php
   include '../page_element/footer.php';
+  // leave if user is not logged in
+  include '../script/not_logged_in.php';
   ?>
 </body>
 
