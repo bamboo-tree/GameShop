@@ -4,15 +4,21 @@
 
 **Użytkownik :**
 
+<<<<<<< HEAD
 - Zakładnie konta użytkownika
 - Logowanie do systemu
 - Dodawanie gier do ulubionych
 - Dodawanie gier do koszyka
 - Uproszczona wersja składania zamówienia
 - Edytowanie zawartości koszyka oraz gier polubionych
+=======
+
+- ZARZĄDZANIE PROFILEM UŻYTKOWNIKA
+>>>>>>> main
 
 **Administrator**
 
+<<<<<<< HEAD
 - Logowanie do systemu
 - Panel administratora
 - Dodawanie gier
@@ -23,11 +29,16 @@
   - zdjęcie okładki
 - Edytowanie informacji o grach (możliwe dla wszystkich wyżej wymienionych kategorii)
 - Usuwanie gier
+=======
+
+- PANEL ADMINISTRATORA
+>>>>>>> main
 
 ### Dodatkowe funckcje
 
 **Bezpieczeństwo**
 
+<<<<<<< HEAD
 - Blokowanie stron przed osobami o nieodpowiednim statusie
 - Automatyczne przekierowania w celu uniknięcia błędów systemu np. strony logowania
 - Wyłączenie niektórych funkcji takich jak zapisywanie gier, dla osób niezalogowanych lub administratorów
@@ -67,3 +78,8 @@ Administrator:
 #### Disclaimer
 
 _Aplikacja była tworzona na systemie operacyjnym `Linux` oraz przeglądarce `Firefox`, monitor `1920x1080 14"`. Nie jestem w stanie zagwarantować takiego samego efektu jaki uzyskałem podczas testowania na własnym urządzeniu. Nie mniej jednak nie wiedzę powodów, dla których coś zaczęłoby zachowywać się w nieoczekiwany sposób._
+=======
+- zabezpieczenie przed nieatoryzowanym dostępem (nie każdy może wejść na niektóre strony, nawet jeśli wpisze odpowiedni URL)
+- statystyki sklepu takie jak ilość kont, osób zalogowanych, dostępnych gier w sklepie
+
+>>>>>>> main
