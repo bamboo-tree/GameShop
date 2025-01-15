@@ -98,6 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST['submit'] == "Update") {
     }
     echo "</div>";
   }
+} else if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST["delete_$id"] == "Delete") {
+  $data_base->my_query("DELETE FROM `products` WHERE `id` LIKE '$id'");
+  header('Location: ../page/edit_game.php');
 }
 ?>
 
@@ -164,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST['submit'] == "Update") {
     </div>
     <div class="button_set">
       <input type="submit" name="submit" value="Update" id="submit" />
-      <input type="reset" name="reset" value="Clear" id="clear" />
+      <input type="submit" name="<?php echo "delete_$id"; ?>" value="Delete" id="<?php echo "delete_$id"; ?>" />
     </div>
   </form>
 </div>
