@@ -79,12 +79,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST['submit'] == "Update") {
   if (empty($errors)) {
     try {
       // get old data from database - previos file
-
-      // delete old version
-      $data_base->my_query("DELETE FROM `products` WHERE `id` LIKE '$id'");
-
-      // insert new product with old ID!!!
-      $data_base->my_query("INSERT INTO `products`(`id`, `image_id`, `title`, `studio`, `price`, `year`) VALUES ('$id','$image_id','$title','$studio','$price','$year')");
+      // update value in DB
+      $data_base->my_query("UPDATE `products` SET `image_id`='$image_id',`title`='$title',`studio`='$studio',`price`='$price',`year`='$year' WHERE `id` LIKE '$id'");
     } catch (Exception $e) {
       echo "<div class='info'>";
       echo "Error: " . $e->getMessage();

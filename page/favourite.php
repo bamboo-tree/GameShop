@@ -42,7 +42,7 @@ session_start();
     }
 
     // save all favourite games in array
-    $data = $data_base->my_query("SELECT `product_id` FROM `favourites` WHERE `user_id` LIKE '$user_id'");
+    $data = $data_base->my_query("SELECT `id`, `product_id` FROM `favourites` WHERE `user_id` LIKE '$user_id'");
     $games = [];
     if ($data->num_rows > 0) {
       while ($row = $data->fetch_assoc()) {
