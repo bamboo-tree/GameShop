@@ -9,8 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
   $session_id = session_id();
   $data_base->my_query("DELETE FROM `logged_in_users` WHERE `session_id` LIKE '$session_id'");
 
-  // session_unset(); // Usuwa zmienne sesji
-  // session_destroy(); // Kończy sesję
+  session_unset();
+  session_destroy();
 
   header("Location: ../page/test.php");
   exit();

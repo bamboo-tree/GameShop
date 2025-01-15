@@ -27,17 +27,11 @@
       <p class="studio">Studio: <b><?php echo "$studio"; ?></b></p>
       <p class="year">Year: <b><?php echo "$year"; ?></b></p>
     </div>
+
     <form class="save" action="../script/save_game.php" method="POST">
       <?php
-
-      // if user is not logged in - exit!
-      $session_id = session_id();
-      $data = $data_base->my_query("SELECT `status` FROM `logged_in_users` WHERE `session_id` LIKE '$session_id'");
-      $row = $data->fetch_assoc();
-      $status = $row['status'];
-
-      if ($data->num_rows == 0) {
-        echo "<a href='../page/login.php'>Join us!</a>";
+      if ($status == '') {
+        echo "<a href='../page/sign_up.php'>Join us!</a>";
         echo "<p class='light'>You need an account to save games</p>";
       } else if ($status == 'USER') {
         echo "<button name='favourite' value='$id'>Add to favourite</button>";

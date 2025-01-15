@@ -4,6 +4,7 @@
 require '../class/Data_Base.php';
 $data_base = new Data_Base('localhost', 'root', '', 'game_shop');
 session_start();
+$session_id = session_id();
 ?>
 
 <head>
@@ -35,11 +36,13 @@ session_start();
 
   <div class="content">
     <?php
+    $data = $data_base->my_query("SELECT `status` FROM `logged_in_users` WHERE `session_id` LIKE '$session_id'");
+    $row = $data->fetch_assoc();
+    $status = $row['status'];
+
     $data = $data_base->my_query("SELECT `id`, `image_id`, `title`, `studio`, `price`, `year` FROM `products` WHERE 1");
-    // $rows = [];
     if ($data->num_rows > 0) {
       while ($row = $data->fetch_assoc()) {
-        //   // $data[] = $row;
         $id = $row['id'];
         $image_id = $row['image_id'];
         $title = $row['title'];
