@@ -26,6 +26,11 @@ session_start();
   include '../page_element/title.php';
   include '../page_element/nav_bar.php';
   ?>
+
+  <div class="header_frame">
+    <h1 class="header">SIGN IN</h1>
+  </div>
+
   <div class="content">
     <?php
     include '../page_element/login_form.php';

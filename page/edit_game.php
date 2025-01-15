@@ -23,25 +23,40 @@ session_start();
 
 <body>
   <?php
+  // leave if user is not admin
+  include '../script/safe_page.php';
+
   include '../page_element/title.php';
   include '../page_element/nav_bar.php';
   ?>
 
   <div class="header_frame">
-    <h1 class="header">SIGN UP</h1>
+    <h1 class="header">ADMIN PANEL - EDIT GAME INFO</h1>
   </div>
 
   <div class="content">
     <?php
-    include '../page_element/sign_up_form.php';
+    $data = $data_base->my_query("SELECT `id`, `image_id`, `title`, `studio`, `price`, `year` FROM `products` WHERE 1");
+    if ($data->num_rows > 0) {
+      while ($row = $data->fetch_assoc()) {
+        $id = $row['id'];
+        $image_id = $row['image_id'];
+        $title = $row['title'];
+        $studio = $row['studio'];
+        $price = $row['price'];
+        $year = $row['year'];
+        include "../page_element/edit_game_form.php";
+      }
+    } else {
+      echo "<div class='info'>";
+      echo "<p>No games found</p>";
+      echo "</div>";
+    }
     ?>
   </div>
 
   <?php
   include '../page_element/footer.php';
-  // leave if user is logged in
-  include '../script/is_logged_in.php';
-
   ?>
 </body>
 

@@ -37,6 +37,10 @@
   display: block;
 }
 
+.input_set p {
+  display: block;
+}
+
 .button_set {
   display: block;
   margin: 8px 0;
