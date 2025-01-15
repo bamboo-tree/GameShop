@@ -7,11 +7,24 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST['submit'] == "Update") {
 
-  // get form data
-  $title = htmlspecialchars($_POST["title_$id"]);
-  $studio = htmlspecialchars($_POST["studio_$id"]);
-  $year = htmlspecialchars($_POST["year_$id"]);
-  $price = htmlspecialchars($_POST["price_$id"]);
+  // if value isn't set use an old one
+  $temp = htmlspecialchars($_POST["title_$id"]);
+  if (!empty($temp)) {
+    $title = $temp;
+  }
+  $temp = htmlspecialchars($_POST["studio_$id"]);
+  if (!empty($temp)) {
+    $studio = $temp;
+  }
+  $temp = htmlspecialchars($_POST["year_$id"]);
+  if (!empty($temp)) {
+    $year = $temp;
+  }
+  $temp = htmlspecialchars($_POST["price_$id"]);
+  if (!empty($temp)) {
+    $price = $temp;
+  }
+
 
   // validation
   if (empty($title)) {
@@ -71,11 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST['submit'] == "Update") {
       $data_base->my_query("DELETE FROM `products` WHERE `id` LIKE '$id'");
 
       // insert new product with old ID!!!
-      // $data_base->my_query("INSERT INTO `products`(`id`, `image_id`, `title`, `studio`, `price`, `year`) VALUES ('$id','$image_id','$title','$studio','$price','$year')");
-
-      echo "<div style='background: #029405' class='info'>";
-      echo "Game updated successfully!";
-      echo "</div>";
+      $data_base->my_query("INSERT INTO `products`(`id`, `image_id`, `title`, `studio`, `price`, `year`) VALUES ('$id','$image_id','$title','$studio','$price','$year')");
     } catch (Exception $e) {
       echo "<div class='info'>";
       echo "Error: " . $e->getMessage();
@@ -135,23 +144,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" and $_POST['submit'] == "Update") {
   <form class="my_form" method="POST" enctype="multipart/form-data">
     <div class="input_set">
       <label for="title">Game Title</label>
-      <input type="text" name="title" id="<?php echo "title_$id"; ?>" value="<?php echo "$title"; ?>" />
+      <input type="text" name="<?php echo "title_$id"; ?>" id="<?php echo "title_$id"; ?>" value="<?php echo "$title"; ?>" />
     </div>
     <div class="input_set">
       <label for="studio">Studio</label>
-      <input type="text" name="studio" id="<?php echo "studio_$id"; ?>" value="<?php echo "$studio"; ?>" />
+      <input type="text" name="<?php echo "studio_$id"; ?>" id="<?php echo "studio_$id"; ?>" value="<?php echo "$studio"; ?>" />
     </div>
     <div class="input_set">
       <label for="year">Year of Release</label>
-      <input type="number" id="<?php echo "year_$id"; ?>" name="year" min="1984" max="2025" value="<?php echo "$year"; ?>">
+      <input type="number" id="<?php echo "year_$id"; ?>" name="<?php echo "year_$id"; ?>" min="1984" max="2025" value="<?php echo "$year"; ?>">
     </div>
     <div class="input_set">
       <label for="price">Price</label>
-      <input type="number" name="price" id="<?php echo "price_$id"; ?>" step="0.01" min="0.00" value="<?php echo "$price"; ?>" />
+      <input type="number" name="<?php echo "price_$id"; ?>" id="<?php echo "price_$id"; ?>" step="0.01" min="0.00" value="<?php echo "$price"; ?>" />
     </div>
     <div class="input_set">
       <label for="image">Select Image:</label>
-      <input type="file" name="image" id="<?php echo "image_$id"; ?>" accept="image/jpeg, image/png">
+      <input type="file" name="<?php echo "image_$id"; ?>" id="<?php echo "image_$id"; ?>" accept="image/jpeg, image/png">
     </div>
     <div class="button_set">
       <input type="submit" name="submit" value="Update" id="submit" />
